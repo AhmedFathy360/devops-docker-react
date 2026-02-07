@@ -8,4 +8,5 @@ RUN npm run build
 
 # Production image, copy all the files and run nginx
 FROM nginx:1.25-alpine AS production
+EXPOSE 80
 COPY --from=builder /app/build /usr/share/nginx/html

@@ -18,7 +18,7 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build test image
-        run: docker build -t cygnetops/react-test -f Dockerfile.dev .
+        run: docker build -t perdita997/react-test -f Dockerfile.dev .
 
       - name: Run tests
-        run: docker run -e CI=true cygnetops/react-test npm test
+        run: docker run -e CI=true perdita997/react-test npm test -- --coverage --watchAll=false
